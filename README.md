@@ -29,6 +29,7 @@ This repository contains training materials, demos, and resources for the Revatu
 - `/demos` - Live coding examples and demonstrations
 - `/notes` - Training materials and documentation
 - `/exercises` - Practice problems and assignments
+- `/projects` - Projects to build
 - `/resources` - Additional learning materials and references
 
 ## Learning Objectives
