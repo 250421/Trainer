@@ -5,5 +5,5 @@ interface SidebarContainerProps {
 }
 
 export const SidebarContent = ({ children }: SidebarContainerProps) => {
-  return <div>{children}</div>;
+  return <div className="flex flex-col gap-y-10">{children}</div>;
 };
