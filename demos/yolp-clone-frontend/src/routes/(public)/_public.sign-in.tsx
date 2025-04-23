@@ -23,13 +23,14 @@ import {
   SignInSchemaType,
 } from "@/features/auth/schemas/sign-in-schema";
 import { useSignIn } from "@/features/auth/hooks/use-sign-in";
+import { Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/(public)/_public/sign-in")({
   component: SignInPage,
 });
 
 function SignInPage() {
-  const { mutate: login } = useSignIn();
+  const { mutate: login, isPending } = useSignIn();
 
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
@@ -82,7 +83,13 @@ function SignInPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={isPending}>
+              {isPending ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                "Submit"
+              )}
+            </Button>
           </form>
         </Form>
 
