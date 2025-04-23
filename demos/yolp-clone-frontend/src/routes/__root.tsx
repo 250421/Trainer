@@ -1,9 +1,25 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 export const Route = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-    </>
-  ),
+  component: () => <RootLayout />,
 });
+
+const RootLayout = () => {
+  // Create a client
+  const queryClient = new QueryClient();
+
+  return (
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
+    </div>
+  );
+};
