@@ -15,7 +15,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,12 +22,15 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useSignUp } from "@/features/auth/hooks/use-sign-up";
 
 export const Route = createFileRoute("/(public)/_public/sign-up")({
   component: SignUpPage,
 });
 
 function SignUpPage() {
+  const { mutate: createUser } = useSignUp();
+
   const form = useForm<SignupSchemaType>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -39,12 +41,13 @@ function SignUpPage() {
 
   function onSubmit(values: SignupSchemaType) {
     console.log(values);
+    createUser(values);
   }
 
   return (
     <Card className="w-[400px]">
       <CardHeader>
-        <CardTitle className="font-bold text-2xl">Sign Up</CardTitle>
+        <CardTitle className="font-bold text-2xl">Register</CardTitle>
         <CardDescription>Please fill in the details below:</CardDescription>
       </CardHeader>
       <CardContent>

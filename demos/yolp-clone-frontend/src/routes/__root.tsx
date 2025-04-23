@@ -1,11 +1,6 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 
 export const Route = createRootRoute({
   component: () => <RootLayout />,
@@ -19,6 +14,7 @@ const RootLayout = () => {
     <div>
       <QueryClientProvider client={queryClient}>
         <Outlet />
+        <Toaster />
       </QueryClientProvider>
     </div>
   );
