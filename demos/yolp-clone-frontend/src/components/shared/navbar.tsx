@@ -1,4 +1,4 @@
-import React from "react";
+import { UserDropdown } from "@/features/auth/components/user-dropdown";
 
 export const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ export const Navbar = () => {
           <h1 className="font-bold text-2xl">YOLP</h1>
         </ul>
         <ul>
-          <h1>Profile</h1>
+          <UserDropdown />
         </ul>
       </div>
     </nav>
