@@ -22,7 +22,7 @@ export const SidebarMainWrapper = ({ children }: SidebarMainWrapperProps) => {
         variant={"ghost"}
         size={"icon"}
         onClick={toggle}
-        className="fixed m-3 z-50 cursor-pointer"
+        className="fixed mx-3 top-20 z-50 cursor-pointer"
       >
         <Sidebar />
       </Button>
