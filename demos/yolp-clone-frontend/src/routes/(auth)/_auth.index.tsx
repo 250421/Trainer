@@ -1,3 +1,4 @@
+import { useGetRestaurants } from "@/features/restaurants/components/use-get-restaruants";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(auth)/_auth/")({
@@ -5,9 +6,18 @@ export const Route = createFileRoute("/(auth)/_auth/")({
 });
 
 function Index() {
+  const { data: restaurants } = useGetRestaurants();
   return (
     <div>
-      <h3>Welcome Home!</h3>
+      {restaurants?.map((resto) => (
+        <div key={resto?.id}>
+          <p>{resto?.name}</p>
+          <p>{resto?.description}</p>
+          <p>{resto?.address}</p>
+          <p>{resto?.phone}</p>
+          <p>{resto?.imageUrl}</p>
+        </div>
+      ))}
     </div>
   );
 }
