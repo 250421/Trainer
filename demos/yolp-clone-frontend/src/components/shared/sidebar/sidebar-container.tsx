@@ -10,5 +10,5 @@ export const SidebarContainer = ({ children }: SidebarContainerProps) => {
 
   if (!mounted) return null;
 
-  return <div className="h-[200vh]">{children}</div>;
+  return <div>{children}</div>;
 };

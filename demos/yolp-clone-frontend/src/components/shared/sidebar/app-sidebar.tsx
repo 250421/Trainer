@@ -1,4 +1,4 @@
-import { Home, List, Settings } from "lucide-react";
+import { Home } from "lucide-react";
 import { Sidebar } from "./sidebar";
 import { SidebarContent } from "./sidebar-content";
 import { SidebarGroup } from "./sidebar-group";
@@ -9,9 +9,7 @@ export const AppSidebar = () => {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarItem label={"Dashboard"} icon={Home} href={"/dashboard"} />
-          <SidebarItem label={"Products"} icon={List} href={"/products"} />
-          <SidebarItem label={"Settings"} icon={Settings} href={"/settings"} />
+          <SidebarItem label={"Dashboard"} icon={Home} href={"/"} />
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
